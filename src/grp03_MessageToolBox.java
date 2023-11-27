@@ -6,7 +6,6 @@ public class grp03_MessageToolBox {
     // Variable figures needed to calculate time
     long MILLIS_SINCE_MIDNIGHT = timeInMillis % MILLIS_IN_DAY;
     long SECS_SINCE_MIDNIGHT = MILLIS_SINCE_MIDNIGHT / 1000;
-
     // Calculating the current time
     long hour = SECS_SINCE_MIDNIGHT / SECS_IN_HOUR;
     long minute = (SECS_SINCE_MIDNIGHT % SECS_IN_HOUR) / 60;
@@ -25,4 +24,22 @@ public class grp03_MessageToolBox {
 
     return formatedTime;
   }
+  public static String centre(String messageText, int width) {
+    String msg = "Insert Message that is rather long here";
+    int wideness = 100;
+    int padding = (wideness - msg.length())/2;
+    if (width <= 0) {
+        return "";
+    } if (width < messageText.length()) {
+        return "";
+    } if (messageText.length() == 0) {
+        String s = " ";
+        String repeated = new String(new char[width]).replace("\0", s);
+        return repeated;
+        //https://stackoverflow.com/questions/1235179/simple-way-to-repeat-a-string used within this in order to avoid a loop
+    }
+    else {
+        return String.format("%" + (padding + msg.length()) + "s", msg.substring(0 , width));
+    }
+}
 }
