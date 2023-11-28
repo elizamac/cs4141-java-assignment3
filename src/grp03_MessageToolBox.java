@@ -1,6 +1,6 @@
 public class grp03_MessageToolBox {
 
-  // Macovei O. ↓ (3)
+  // Macovei O. ↓ (3, 5)
   public static int ageOfPost(long timeInMillis) {
     final long MILLISECONDS_IN_A_DAY = 24 * 60 * 60 * 1000;
     long currentTime = System.currentTimeMillis();
@@ -11,6 +11,24 @@ public class grp03_MessageToolBox {
     if(timeDifference % MILLISECONDS_IN_A_DAY > 0)
       ++ageInDays;
     return ageInDays;
+  }
+
+  public static void display(String messageText, int width) {
+    if(messageText.length() == 0)
+      return;
+    if(width < 10)
+      width = 10;
+    if(width > 80)
+      width = 80;
+
+    for(int line = 0; line * width <= messageText.length(); ++line) {
+      int lineEnd = (line + 1) * width;
+      if(lineEnd >= messageText.length())
+        lineEnd = messageText.length();
+      
+      System.out.println(messageText.substring(line * width, lineEnd));
+
+    }
   }
 
   // Kufa D. ↓ (1)
