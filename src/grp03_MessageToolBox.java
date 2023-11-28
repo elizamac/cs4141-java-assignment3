@@ -24,22 +24,55 @@ public class grp03_MessageToolBox {
 
     return formatedTime;
   }
+
+  public static String dayName(long timeInMillis) {
+    final long MILLIS_IN_DAY = 24 * 60 * 60 * 1000;
+    int currentDayNumber = (int) (timeInMillis / MILLIS_IN_DAY) % 7;
+    String currentDayName;
+    switch (currentDayNumber) {
+      case 0:
+        currentDayName = "Thursday";
+        break;
+      case 1:
+        currentDayName = "Friday";
+        break;
+      case 2:
+        currentDayName = "Saturday";
+        break;
+      case 3:
+        currentDayName = "Sunday";
+        break;
+      case 4:
+        currentDayName = "Monday";
+        break;
+      case 5:
+        currentDayName = "Tuesday";
+        break;
+      default:
+        currentDayName = "Wednesday";
+        break;
+    }
+    return currentDayName;
+  }
+
   public static String centre(String messageText, int width) {
     String msg = "Insert Message that is rather long here";
     int wideness = 100;
-    int padding = (wideness - msg.length())/2;
+    int padding = (wideness - msg.length()) / 2;
     if (width <= 0) {
-        return "";
-    } if (width < messageText.length()) {
-        return "";
-    } if (messageText.length() == 0) {
-        String s = " ";
-        String repeated = new String(new char[width]).replace("\0", s);
-        return repeated;
-        //https://stackoverflow.com/questions/1235179/simple-way-to-repeat-a-string used within this in order to avoid a loop
+      return "";
     }
-    else {
-        return String.format("%" + (padding + msg.length()) + "s", msg.substring(0 , width));
+    if (width < messageText.length()) {
+      return "";
     }
-}
+    if (messageText.length() == 0) {
+      String s = " ";
+      String repeated = new String(new char[width]).replace("\0", s);
+      return repeated;
+      // https://stackoverflow.com/questions/1235179/simple-way-to-repeat-a-string
+      // used within this in order to avoid a loop
+    } else {
+      return String.format("%" + (padding + msg.length()) + "s", msg.substring(0, width));
+    }
+  }
 }
