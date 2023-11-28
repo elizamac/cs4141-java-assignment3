@@ -1,4 +1,7 @@
 public class grp03_MessageToolBox {
+  
+// Macovei O. ↓
+// Kufa D. ↓
   public static String timeOfDayFormatted(long timeInMillis) {
     final long MILLIS_IN_DAY = 1000 * 60 * 60 * 24;
     final long SECS_IN_HOUR = 60 * 60;
@@ -25,6 +28,7 @@ public class grp03_MessageToolBox {
     return formatedTime;
   }
 
+// McHale C. ↓
   public static String dayName(long timeInMillis) {
     final long MILLIS_IN_DAY = 24 * 60 * 60 * 1000;
     int currentDayNumber = (int) (timeInMillis / MILLIS_IN_DAY) % 7;
@@ -52,10 +56,11 @@ public class grp03_MessageToolBox {
         currentDayName = "Wednesday";
         break;
     }
-    
+
     return currentDayName;
   }
 
+// Oliszewska S. ↓
   public static String centre(String messageText, int width) {
     String msg = "Insert Message that is rather long here";
     int wideness = 100;
