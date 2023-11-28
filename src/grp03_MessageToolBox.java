@@ -52,6 +52,7 @@ public class grp03_MessageToolBox {
         currentDayName = "Wednesday";
         break;
     }
+    
     return currentDayName;
   }
 
