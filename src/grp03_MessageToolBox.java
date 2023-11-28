@@ -74,15 +74,14 @@ public class grp03_MessageToolBox {
 
   // Oliszewska S. ↓ (4)
   public static String centre(String messageText, int width) {
-    String msg = "Insert Message that is rather long here";
-    int wideness = 100;
-    int padding = (wideness - msg.length()) / 2;
+    int padding = (width - messageText.length()) / 2;
     if (width <= 0) {
       return "";
     }
+    else {
     if (width < messageText.length()) {
       return "";
-    }
+    } else {
     if (messageText.length() == 0) {
       String s = " ";
       String repeated = new String(new char[width]).replace("\0", s);
@@ -90,7 +89,9 @@ public class grp03_MessageToolBox {
       // https://stackoverflow.com/questions/1235179/simple-way-to-repeat-a-string
       // used within this in order to avoid a loop
     } else {
-      return String.format("%" + (padding + msg.length()) + "s", msg.substring(0, width));
+      return String.format("%" + (padding + messageText.length()) + "s", messageText.substring(0));
+    }
+    }
     }
   }
 }

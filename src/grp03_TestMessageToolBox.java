@@ -10,5 +10,10 @@ public class grp03_TestMessageToolBox {
         + grp03_MessageToolBox.timeOfDayFormatted(System.currentTimeMillis()) + ") and post time ("
         + grp03_MessageToolBox.dayName(postTime) + ", " + grp03_MessageToolBox.timeOfDayFormatted(postTime) + "): "
         + grp03_MessageToolBox.ageOfPost(postTime) + " days");
+
+    //!TESTING: centre method
+    String msg = "testing test";
+    int width = 40;
+    System.out.println(grp03_MessageToolBox.centre(msg, width));
   }
 }
