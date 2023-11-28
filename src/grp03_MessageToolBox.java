@@ -5,27 +5,27 @@ public class grp03_MessageToolBox {
     final long MILLISECONDS_IN_A_DAY = 24 * 60 * 60 * 1000;
     long currentTime = System.currentTimeMillis();
     // Time at midnight before current day and the day before
-    long lastMidnight = currentTime - (currentTime % MILLISECONDS_IN_A_DAY); 
+    long lastMidnight = currentTime - (currentTime % MILLISECONDS_IN_A_DAY);
     long timeDifference = lastMidnight - timeInMillis;
     int ageInDays = (int) (timeDifference / MILLISECONDS_IN_A_DAY);
-    if(timeDifference % MILLISECONDS_IN_A_DAY > 0)
+    if (timeDifference % MILLISECONDS_IN_A_DAY > 0)
       ++ageInDays;
     return ageInDays;
   }
 
   public static void display(String messageText, int width) {
-    if(messageText.length() == 0)
+    if (messageText.length() == 0)
       return;
-    if(width < 10)
+    if (width < 10)
       width = 10;
-    if(width > 80)
+    if (width > 80)
       width = 80;
 
-    for(int line = 0; line * width <= messageText.length(); ++line) {
+    for (int line = 0; line * width <= messageText.length(); ++line) {
       int lineEnd = (line + 1) * width;
-      if(lineEnd >= messageText.length())
+      if (lineEnd >= messageText.length())
         lineEnd = messageText.length();
-      
+
       System.out.println(messageText.substring(line * width, lineEnd));
 
     }
@@ -95,21 +95,20 @@ public class grp03_MessageToolBox {
     int padding = (width - messageText.length()) / 2;
     if (width <= 0) {
       return "";
-    }
-    else {
-    if (width < messageText.length()) {
-      return "";
     } else {
-    if (messageText.length() == 0) {
-      String s = " ";
-      String repeated = new String(new char[width]).replace("\0", s);
-      return repeated;
-      // https://stackoverflow.com/questions/1235179/simple-way-to-repeat-a-string
-      // used within this in order to avoid a loop
-    } else {
-      return String.format("%" + (padding + messageText.length()) + "s", messageText.substring(0));
-    }
-    }
+      if (width < messageText.length()) {
+        return "";
+      } else {
+        if (messageText.length() == 0) {
+          String s = " ";
+          String repeated = new String(new char[width]).replace("\0", s);
+          return repeated;
+          // https://stackoverflow.com/questions/1235179/simple-way-to-repeat-a-string
+          // used within this in order to avoid a loop
+        } else {
+          return String.format("%" + (padding + messageText.length()) + "s", messageText.substring(0));
+        }
+      }
     }
   }
 }
