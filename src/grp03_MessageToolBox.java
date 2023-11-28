@@ -1,7 +1,19 @@
 public class grp03_MessageToolBox {
-  
-// Macovei O. ↓
-// Kufa D. ↓
+
+  // Macovei O. ↓ (3)
+  public static int ageOfPost(long timeInMillis) {
+    final long MILLISECONDS_IN_A_DAY = 24 * 60 * 60 * 1000;
+    long currentTime = System.currentTimeMillis();
+    // Time at midnight before current day and the day before
+    long lastMidnight = currentTime - (currentTime % MILLISECONDS_IN_A_DAY); 
+    long timeDifference = lastMidnight - timeInMillis;
+    int ageInDays = (int) (timeDifference / MILLISECONDS_IN_A_DAY);
+    if(timeDifference % MILLISECONDS_IN_A_DAY > 0)
+      ++ageInDays;
+    return ageInDays;
+  }
+
+  // Kufa D. ↓ (1)
   public static String timeOfDayFormatted(long timeInMillis) {
     final long MILLIS_IN_DAY = 1000 * 60 * 60 * 24;
     final long SECS_IN_HOUR = 60 * 60;
@@ -28,7 +40,7 @@ public class grp03_MessageToolBox {
     return formatedTime;
   }
 
-// McHale C. ↓
+  // McHale C. ↓ (2)
   public static String dayName(long timeInMillis) {
     final long MILLIS_IN_DAY = 24 * 60 * 60 * 1000;
     int currentDayNumber = (int) (timeInMillis / MILLIS_IN_DAY) % 7;
@@ -60,7 +72,7 @@ public class grp03_MessageToolBox {
     return currentDayName;
   }
 
-// Oliszewska S. ↓
+  // Oliszewska S. ↓ (4)
   public static String centre(String messageText, int width) {
     String msg = "Insert Message that is rather long here";
     int wideness = 100;
