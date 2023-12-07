@@ -63,30 +63,20 @@ public class grp03_MessageToolBox {
     final long MILLIS_IN_DAY = 24 * 60 * 60 * 1000;
     int currentDayNumber = (int) (timeInMillis / MILLIS_IN_DAY) % 7;
     String currentDayName;
-    switch (currentDayNumber) {
-      case 0:
-        currentDayName = "Thursday";
-        break;
-      case 1:
-        currentDayName = "Friday";
-        break;
-      case 2:
-        currentDayName = "Saturday";
-        break;
-      case 3:
-        currentDayName = "Sunday";
-        break;
-      case 4:
-        currentDayName = "Monday";
-        break;
-      case 5:
-        currentDayName = "Tuesday";
-        break;
-      default:
-        currentDayName = "Wednesday";
-        break;
-    }
-
+    if (currentDayNumber == 0)
+      currentDayName = "Thursday";
+    else if (currentDayNumber == 1)
+      currentDayName = "Friday";
+    else if (currentDayNumber == 2)
+      currentDayName = "Saturday";
+    else if (currentDayNumber == 3)
+      currentDayName = "Sunday";
+    else if (currentDayNumber == 4)
+      currentDayName = "Monday";
+    else if (currentDayNumber == 5)
+      currentDayName = "Tuesday";
+    else
+      currentDayName = "Wednesday";
     return currentDayName;
   }
 
